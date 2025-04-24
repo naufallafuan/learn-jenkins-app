@@ -33,6 +33,7 @@ pipeline {
                     echo "Test start"
                     npm test
                     ls -la
+                    test -f build/index.html
                     cat "build/index.html"
                 '''
             }
