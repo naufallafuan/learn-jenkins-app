@@ -30,13 +30,16 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "Test start"
+                    echo "Test stage"
                     npm test
-                    ls -la
-                    test -f build/index.html
-                    cat "build/index.html"
                 '''
             }
+        }
+    }
+
+    post {
+        always {
+            junit 'test-results/junit.xml'
         }
     }
 }
